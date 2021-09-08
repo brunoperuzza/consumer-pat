@@ -1,5 +1,6 @@
 package br.com.alelo.consumer.consumerpat.controller;
 
+import br.com.alelo.consumer.consumerpat.dto.ConsumerCreate;
 import br.com.alelo.consumer.consumerpat.entity.Consumer;
 import br.com.alelo.consumer.consumerpat.entity.Extract;
 import br.com.alelo.consumer.consumerpat.respository.ConsumerRepository;
@@ -33,8 +34,8 @@ public class ConsumerController {
 
     /* Cadastrar novos clientes */
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public void create(@RequestBody Consumer consumer) {
-        service.create(consumer);
+    public void create(@RequestBody ConsumerCreate consumerCreate) {
+        service.create(consumerCreate);
     }
 
 
