@@ -20,4 +20,9 @@ public class Card {
 
     @ManyToOne
     CardType cardType;
+
+
+    public void addValue(Double value) {
+        this.balance += value;
+    }
 }

@@ -1,6 +1,7 @@
 package br.com.alelo.consumer.consumerpat.controller;
 
 import br.com.alelo.consumer.consumerpat.entity.Consumer;
+import br.com.alelo.consumer.consumerpat.service.CardService;
 import br.com.alelo.consumer.consumerpat.service.ConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,11 +12,11 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/consumer")
+@RequestMapping("/card")
 public class CardController {
 
     @Autowired
-    ConsumerService service;
+    CardService service;
 
 
     /*
@@ -23,15 +24,10 @@ public class CardController {
      * Para isso ele precisa indenficar qual o cartão correto a ser recarregado,
      * para isso deve usar o número do cartão(cardNumber) fornecido.
      */
-    @RequestMapping(value = "/setcardbalance", method = RequestMethod.GET)
-    public void setBalance(int cardNumber, double value) {
-        service.setBalance(cardNumber, value);
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "/buy", method = RequestMethod.GET)
-    public void buy(int establishmentType, String establishmentName, int cardNumber, String productDescription, double value) {
-        service.buy(establishmentType, establishmentName, cardNumber, productDescription, value);
+    @RequestMapping(value = "", method = RequestMethod.PUT)
+    // Considerando que os cartões podem ter a mesma numeração, porém com tipos diferentes, foi inserido o typeId
+    public void addValue(long cardNumber, double value, long typeId) {
+        service.addValue(cardNumber, value, typeId);
     }
 
 }

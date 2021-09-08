@@ -19,6 +19,7 @@ public class CardType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
     String name;
+    // tax é referente ao cashback ou aumento de valor para a compra. Valor positivo é aumento, valor negativo é cashback.
     double tax;
 
 }

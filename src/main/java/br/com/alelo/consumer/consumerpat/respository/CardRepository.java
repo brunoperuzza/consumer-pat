@@ -12,5 +12,5 @@ import java.util.List;
 public interface CardRepository extends JpaRepository<Card, Integer> {
 
     @Query(nativeQuery = true, value = "select * from Card where number = :cardNumber AND cardType = :cardType ")
-    Card findByNumberAndType(@Param("cardNumber") Long cardNumber, @Param("cardType") CardType cardType);
+    Card findByNumberAndType(@Param("cardNumber") long cardNumber, @Param("cardType") long cardType);
 }
