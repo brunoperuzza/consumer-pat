@@ -25,39 +25,23 @@ public class ConsumerController {
     /* Deve listar todos os clientes (cerca de 500) */
     @ResponseBody
     @ResponseStatus(code = HttpStatus.OK)
-    @RequestMapping(value = "/consumerList", method = RequestMethod.GET)
-    public List<Consumer> listAllConsumers() {
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public List<Consumer> listAll() {
         return service.listAll();
     }
 
 
     /* Cadastrar novos clientes */
-    @RequestMapping(value = "/createConsumer", method = RequestMethod.POST)
-    public void createConsumer(@RequestBody Consumer consumer) {
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public void create(@RequestBody Consumer consumer) {
         service.create(consumer);
     }
 
+
     // Não deve ser possível alterar o saldo do cartão
-    @RequestMapping(value = "/updateConsumer", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     public void updateConsumer(@RequestBody Consumer consumer) {
         service.update(consumer);
-    }
-
-
-    /*
-     * Deve creditar(adicionar) um valor(value) em um no cartão.
-     * Para isso ele precisa indenficar qual o cartão correto a ser recarregado,
-     * para isso deve usar o número do cartão(cardNumber) fornecido.
-     */
-    @RequestMapping(value = "/setcardbalance", method = RequestMethod.GET)
-    public void setBalance(int cardNumber, double value) {
-        service.setBalance(cardNumber, value);
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "/buy", method = RequestMethod.GET)
-    public void buy(int establishmentType, String establishmentName, int cardNumber, String productDescription, double value) {
-        service.buy(establishmentType, establishmentName, cardNumber, productDescription, value);
     }
 
 }
